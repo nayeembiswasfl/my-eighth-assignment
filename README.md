@@ -13,7 +13,7 @@ The project helps visitors discover tile styles, view detailed tile information,
 ## Key Features
 
 - Home page with hero banner, announcement marquee, Swiper-powered featured tiles, and trust highlights.
-- All Tiles page with a large HeroUI search input for title-based filtering.
+- All Tiles page with a large styled search input for title-based filtering.
 - Protected tile details pages with high-resolution preview, creator, style description, specs, stock status, and tags.
 - Login and registration pages with email/password and Google social authentication through BetterAuth.
 - My Profile page showing active user data and a protected update route for name and image URL changes.
