@@ -3,47 +3,37 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Image as ImageIcon, UserRound } from "lucide-react";
-import { authClient } from "@/lib/auth-client";
+import { updateDummyUser, useDummyUser } from "@/lib/dummy-auth";
 
 export default function UpdateProfileClient() {
   const router = useRouter();
-  const { data: session } = authClient.useSession();
+  const { user } = useDummyUser();
   const [form, setForm] = useState({ name: "", image: "" });
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (session?.user) {
+    if (user) {
       setForm({
-        name: session.user.name || "",
-        image: session.user.image || ""
+        name: user.name || "",
+        image: user.image || ""
       });
     }
-  }, [session]);
+  }, [user]);
 
   async function submit(event) {
     event.preventDefault();
     setLoading(true);
     setMessage("");
 
-    try {
-      const response = await authClient.updateUser({
-        name: form.name,
-        image: form.image
-      });
+    updateDummyUser({
+      name: form.name,
+      image: form.image
+    });
 
-      if (response?.error) {
-        setMessage(response.error.message || "Update failed.");
-        return;
-      }
-
-      router.push("/my-profile");
-      router.refresh();
-    } catch (error) {
-      setMessage(error.message || "Could not update profile.");
-    } finally {
-      setLoading(false);
-    }
+    router.push("/my-profile");
+    router.refresh();
+    setLoading(false);
   }
 
   return (

@@ -3,20 +3,20 @@
 import { useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { LoaderCircle } from "lucide-react";
-import { authClient } from "@/lib/auth-client";
+import { useDummyUser } from "@/lib/dummy-auth";
 
 export default function AuthGuard({ children }) {
   const router = useRouter();
   const pathname = usePathname();
-  const { data: session, isPending } = authClient.useSession();
+  const { user, loading } = useDummyUser();
 
   useEffect(() => {
-    if (!isPending && !session?.user) {
+    if (!loading && !user) {
       router.replace(`/login?next=${encodeURIComponent(pathname)}`);
     }
-  }, [isPending, pathname, router, session]);
+  }, [loading, pathname, router, user]);
 
-  if (isPending || !session?.user) {
+  if (loading || !user) {
     return (
       <div className="page-loader">
         <LoaderCircle className="spin" size={34} />

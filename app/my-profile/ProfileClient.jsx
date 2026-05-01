@@ -3,11 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Mail, PenLine, ShieldCheck, UserRound } from "lucide-react";
-import { authClient } from "@/lib/auth-client";
+import { useDummyUser } from "@/lib/dummy-auth";
 
 export default function ProfileClient() {
-  const { data: session } = authClient.useSession();
-  const user = session?.user;
+  const { user } = useDummyUser();
 
   return (
     <main className="profile-page">
@@ -25,7 +24,7 @@ export default function ProfileClient() {
             <span className="stock-pill">Verified Member</span>
             <h1>{user?.name || "TileCraft Member"}</h1>
             <p><Mail size={18} /> {user?.email}</p>
-            <p><ShieldCheck size={18} /> Profile data is loaded from the active BetterAuth session.</p>
+            <p><ShieldCheck size={18} /> Profile data is saved locally for hassle-free assignment checking.</p>
           </div>
           <Link href="/my-profile/update" className="gold-btn">
             <PenLine size={18} />

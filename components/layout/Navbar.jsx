@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Bell, LogOut, Menu, UserRound, X } from "lucide-react";
 import { useState } from "react";
-import { authClient } from "@/lib/auth-client";
+import { logoutDummyUser, useDummyUser } from "@/lib/dummy-auth";
 
 const links = [
   { href: "/", label: "Home" },
@@ -17,11 +17,11 @@ export default function Navbar({ dark = false }) {
   const pathname = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
-  const { data: session } = authClient.useSession();
-  const isLoggedIn = Boolean(session?.user);
+  const { user } = useDummyUser();
+  const isLoggedIn = Boolean(user);
 
-  async function handleLogout() {
-    await authClient.signOut();
+  function handleLogout() {
+    logoutDummyUser();
     router.push("/login");
     router.refresh();
   }
@@ -53,8 +53,8 @@ export default function Navbar({ dark = false }) {
           <>
             <Link href="/my-profile" aria-label="Open profile">
               <span className="avatar">
-                {session.user.image ? (
-                  <img src={session.user.image} alt={session.user.name || "User"} />
+                {user.image ? (
+                  <img src={user.image} alt={user.name || "User"} />
                 ) : (
                   <UserRound size={20} />
                 )}

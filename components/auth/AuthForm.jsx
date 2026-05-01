@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { Lock, Mail, UserRound, Image as ImageIcon } from "lucide-react";
-import { authClient } from "@/lib/auth-client";
+import { loginDummyUser } from "@/lib/dummy-auth";
 
 export default function AuthForm({ mode }) {
   const isLogin = mode === "login";
@@ -20,40 +20,30 @@ export default function AuthForm({ mode }) {
     setForm((current) => ({ ...current, [field]: value }));
   }
 
-  async function submit(event) {
+  function submit(event) {
     event.preventDefault();
     setLoading(true);
     setMessage("");
 
-    try {
-      const response = isLogin
-        ? await authClient.signIn.email({ email: form.email, password: form.password })
-        : await authClient.signUp.email({
-            name: form.name,
-            email: form.email,
-            password: form.password,
-            image: form.image
-          });
+    loginDummyUser({
+      name: form.name,
+      email: form.email,
+      image: form.image
+    });
 
-      if (response?.error) {
-        setMessage(response.error.message || "Authentication failed. Please try again.");
-        return;
-      }
-
-      router.push(isLogin ? next : "/login");
-      router.refresh();
-    } catch (error) {
-      setMessage(error.message || "Something went wrong. Please check your configuration.");
-    } finally {
-      setLoading(false);
-    }
+    router.push(isLogin ? next : "/login");
+    router.refresh();
+    setLoading(false);
   }
 
-  async function googleLogin() {
-    await authClient.signIn.social({
-      provider: "google",
-      callbackURL: next
+  function googleLogin() {
+    loginDummyUser({
+      name: "Google Demo User",
+      email: "google.user@example.com",
+      image: "https://i.ibb.co.com/5x9C3qK/user-avatar.png"
     });
+    router.push(next);
+    router.refresh();
   }
 
   return (
@@ -61,7 +51,7 @@ export default function AuthForm({ mode }) {
       <div className="auth-card">
         <Image src="/images/brand/website-logo.png" alt="TileCraft" width={92} height={92} className="auth-logo" />
         <h1>{isLogin ? "Welcome Back!" : "Create Account"}</h1>
-        <p>{isLogin ? "Login to your account and explore premium tiles" : "Register yourself to save favorites and manage your profile"}</p>
+        <p>{isLogin ? "Use any email and password to explore premium tiles" : "Register yourself to save favorites and manage your profile"}</p>
 
         <form onSubmit={submit} className="auth-form">
           {!isLogin && (
