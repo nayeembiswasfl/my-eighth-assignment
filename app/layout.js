@@ -3,7 +3,11 @@ import Providers from "@/components/Providers";
 
 export const metadata = {
   title: "TileCraft Gallery",
-  description: "A premium responsive tile gallery built with Next.js and BetterAuth."
+  description: "A premium responsive tile gallery built with Next.js and BetterAuth.",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/apple-icon.png"
+  }
 };
 
 export default function RootLayout({ children }) {
