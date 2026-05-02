@@ -43,6 +43,15 @@ export default function Navbar({ dark = false }) {
             {link.label}
           </Link>
         ))}
+        {isLoggedIn ? (
+          <button className="mobile-auth-link" onClick={handleLogout}>
+            <LogOut size={18} /> Logout
+          </button>
+        ) : (
+          <Link href="/login" className="mobile-auth-link" onClick={() => setOpen(false)}>
+            <UserRound size={18} /> Login
+          </Link>
+        )}
       </nav>
 
       <div className="nav-actions">

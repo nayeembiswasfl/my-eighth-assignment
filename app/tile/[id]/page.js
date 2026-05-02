@@ -52,7 +52,7 @@ export default function TileDetailsPage({ params }) {
               <span>ID: {tile.id.toUpperCase()}</span>
             </div>
             <p className="creator">Creator: {tile.creator}</p>
-            <p className="details-price">৳{tile.price.toLocaleString()} <span>/ sq.ft</span></p>
+            <p className="details-price">BDT {tile.price.toLocaleString()} <span>/ sq.ft</span></p>
             <p>{tile.description}</p>
             <p className="style-description">{tile.styleDescription}</p>
             <div className="spec-grid">

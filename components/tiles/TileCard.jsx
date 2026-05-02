@@ -10,7 +10,7 @@ export default function TileCard({ tile, compact = false }) {
       </div>
       <div className="tile-card-body">
         <h3>{tile.title}</h3>
-        {!compact && <p className="tile-price">৳{tile.price.toLocaleString()} <span>/ sq.ft</span></p>}
+        {!compact && <p className="tile-price">BDT {tile.price.toLocaleString()} <span>/ sq.ft</span></p>}
         <Link href={`/tile/${tile.id}`} className="dark-btn">
           {compact ? "Details" : "View Details"} <ArrowRight size={17} />
         </Link>
