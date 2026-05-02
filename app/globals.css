@@ -68,6 +68,12 @@ input {
   width: max-content;
 }
 
+.brand img,
+.footer-logo,
+.auth-logo {
+  object-fit: contain;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -400,6 +406,8 @@ input {
 
 .footer-logo {
   filter: brightness(1.35);
+  width: 74px;
+  height: auto;
 }
 
 .footer p,
@@ -689,6 +697,8 @@ input {
 .auth-logo {
   margin: 0 auto 18px;
   object-fit: contain;
+  width: 76px;
+  height: auto;
 }
 
 .auth-card h1 {
@@ -871,7 +881,7 @@ input {
   }
 
   .brand img {
-    width: 132px;
+    width: 48px;
     height: auto;
   }
 
@@ -1201,6 +1211,6 @@ input {
   }
 
   .brand img {
-    width: 124px;
+    width: 44px;
   }
 }

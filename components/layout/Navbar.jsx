@@ -29,7 +29,7 @@ export default function Navbar({ dark = false }) {
   return (
     <header className={`site-header ${dark ? "site-header-dark" : ""}`}>
       <Link href="/" className="brand" aria-label="TileCraft home">
-        <Image src="/images/brand/website-logo.png" alt="TileCraft" width={178} height={64} priority />
+        <Image src="/images/brand/website-logo.png" alt="TileCraft" width={58} height={55} priority />
       </Link>
 
       <nav className={`nav-links ${open ? "is-open" : ""}`}>

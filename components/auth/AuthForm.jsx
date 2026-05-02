@@ -49,7 +49,7 @@ export default function AuthForm({ mode }) {
   return (
     <main className="auth-page">
       <div className="auth-card">
-        <Image src="/images/brand/website-logo.png" alt="TileCraft" width={92} height={92} className="auth-logo" />
+        <Image src="/images/brand/website-logo.png" alt="TileCraft" width={76} height={72} className="auth-logo" />
         <h1>{isLogin ? "Welcome Back!" : "Create Account"}</h1>
         <p>{isLogin ? "Use any email and password to explore premium tiles" : "Register yourself to save favorites and manage your profile"}</p>
 
