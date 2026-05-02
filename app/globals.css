@@ -46,9 +46,9 @@ input {
   top: 0;
   z-index: 30;
   display: grid;
-  grid-template-columns: 260px 1fr 260px;
+  grid-template-columns: 240px 1fr 260px;
   align-items: center;
-  min-height: 120px;
+  min-height: 88px;
   padding: 0 48px;
   background: rgba(255, 255, 255, 0.96);
   border-bottom: 1px solid rgba(16, 34, 48, 0.08);
@@ -57,9 +57,9 @@ input {
 }
 
 .site-header-dark {
-  background: var(--navy);
-  color: var(--white);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--ink);
+  border-color: rgba(16, 34, 48, 0.08);
 }
 
 .brand {
@@ -406,7 +406,7 @@ input {
 
 .footer-logo {
   filter: brightness(1.35);
-  width: 246px;
+  width: 82px;
   height: auto;
 }
 
@@ -697,7 +697,7 @@ input {
 .auth-logo {
   margin: 0 auto 18px;
   object-fit: contain;
-  width: 252px;
+  width: 84px;
   max-width: 70%;
   height: auto;
 }
@@ -843,7 +843,7 @@ input {
 
 @media (max-width: 1080px) {
   .site-header {
-    grid-template-columns: 210px 1fr auto;
+    grid-template-columns: 200px 1fr auto;
     padding: 0 24px;
   }
 
@@ -877,12 +877,12 @@ input {
 @media (max-width: 760px) {
   .site-header {
     grid-template-columns: 1fr auto;
-    min-height: 86px;
+    min-height: 68px;
     padding: 0 14px;
   }
 
   .brand img {
-    width: 124px;
+    width: 56px;
     height: auto;
   }
 
@@ -900,7 +900,7 @@ input {
     position: absolute;
     left: 0;
     right: 0;
-    top: 86px;
+    top: 68px;
     display: none;
     flex-direction: column;
     align-items: stretch;
@@ -909,10 +909,6 @@ input {
     background: rgba(255, 255, 255, 0.98);
     border-bottom: 1px solid rgba(16, 34, 48, 0.1);
     box-shadow: 0 18px 35px rgba(7, 28, 43, 0.12);
-  }
-
-  .site-header-dark .nav-links {
-    background: var(--navy);
   }
 
   .nav-links.is-open {
@@ -936,7 +932,7 @@ input {
   }
 
   .home-hero {
-    min-height: calc(100svh - 86px);
+    min-height: calc(100svh - 68px);
     align-items: end;
     padding: 0 0 42px;
     background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.9)), url("/images/brand/hero-banner.png");
@@ -1131,7 +1127,7 @@ input {
   }
 
   .auth-page {
-    min-height: calc(100svh - 86px);
+    min-height: calc(100svh - 68px);
     padding: 28px 14px;
     align-items: start;
   }
@@ -1212,6 +1208,6 @@ input {
   }
 
   .brand img {
-    width: 112px;
+    width: 52px;
   }
 }

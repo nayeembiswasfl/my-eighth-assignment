@@ -30,7 +30,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-grid">
         <div>
-          <Image src="/images/brand/website-logo.png" alt="TileCraft" width={246} height={234} className="footer-logo" />
+          <Image src="/images/brand/website-logo.png" alt="TileCraft" width={82} height={78} className="footer-logo" />
           <p>We provide a wide range of premium tiles to elevate every corner of your space with elegance and durability.</p>
           <div className="socials">
             <Link href="https://facebook.com" aria-label="Facebook"><Facebook size={20} /></Link>
