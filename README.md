@@ -4,7 +4,7 @@ TileCraft Gallery is a responsive single page tile showcase built for the Tiles 
 
 ## Live URL
 
-Live URL: add the final Vercel or Render deployment link here after deploying.
+Live URL: https://my-eighth-assignment.vercel.app/
 
 Local preview URL: `http://127.0.0.1:3000`
 

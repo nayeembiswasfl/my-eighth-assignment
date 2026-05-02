@@ -20,7 +20,7 @@ export default function AuthGuard({ children }) {
     return (
       <div className="page-loader">
         <LoaderCircle className="spin" size={34} />
-        <span>Loading secure space...</span>
+        <span>{loading ? "Loading secure space..." : "Redirecting to login..."}</span>
       </div>
     );
   }

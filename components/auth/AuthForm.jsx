@@ -2,16 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { Lock, Mail, UserRound, Image as ImageIcon } from "lucide-react";
 import { loginDummyUser, registerDummyUser } from "@/lib/dummy-auth";
 
 export default function AuthForm({ mode }) {
   const isLogin = mode === "login";
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const next = searchParams.get("next") || "/";
+  const [next, setNext] = useState("/");
   const [form, setForm] = useState({ name: "", email: "", image: "", password: "" });
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -19,6 +18,11 @@ export default function AuthForm({ mode }) {
   function update(field, value) {
     setForm((current) => ({ ...current, [field]: value }));
   }
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    setNext(params.get("next") || "/");
+  }, []);
 
   function submit(event) {
     event.preventDefault();

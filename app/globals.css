@@ -836,17 +836,6 @@ input {
   text-align: center;
 }
 
-.inline-loader {
-  min-height: 230px;
-  display: grid;
-  place-items: center;
-  align-content: center;
-  gap: 12px;
-  color: var(--muted);
-  background: #fbfbfc;
-  border: 1px solid rgba(16, 34, 48, 0.08);
-  border-radius: 8px;
-}
 
 .spin {
   animation: spin 0.8s linear infinite;
