@@ -719,6 +719,15 @@ input {
   line-height: 1.45;
 }
 
+.auth-note {
+  margin: 12px 0 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: #f7f1e7;
+  color: var(--ink) !important;
+  font-size: 14px !important;
+}
+
 .auth-form {
   display: grid;
   gap: 18px;
@@ -825,6 +834,18 @@ input {
   align-content: center;
   gap: 18px;
   text-align: center;
+}
+
+.inline-loader {
+  min-height: 230px;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 12px;
+  color: var(--muted);
+  background: #fbfbfc;
+  border: 1px solid rgba(16, 34, 48, 0.08);
+  border-radius: 8px;
 }
 
 .spin {

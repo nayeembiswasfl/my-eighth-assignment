@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { Lock, Mail, UserRound, Image as ImageIcon } from "lucide-react";
-import { loginDummyUser } from "@/lib/dummy-auth";
+import { loginDummyUser, registerDummyUser } from "@/lib/dummy-auth";
 
 export default function AuthForm({ mode }) {
   const isLogin = mode === "login";
@@ -25,11 +25,37 @@ export default function AuthForm({ mode }) {
     setLoading(true);
     setMessage("");
 
-    loginDummyUser({
-      name: form.name,
-      email: form.email,
-      image: form.image
-    });
+    if (!form.email.trim() || !form.password.trim()) {
+      setMessage("Please provide both email and password.");
+      setLoading(false);
+      return;
+    }
+
+    if (form.password.length < 4) {
+      setMessage("Password should be at least 4 characters for this demo.");
+      setLoading(false);
+      return;
+    }
+
+    if (!isLogin && !form.name.trim()) {
+      setMessage("Please provide your name to register.");
+      setLoading(false);
+      return;
+    }
+
+    if (isLogin) {
+      loginDummyUser({
+        name: form.name,
+        email: form.email,
+        image: form.image
+      });
+    } else {
+      registerDummyUser({
+        name: form.name,
+        email: form.email,
+        image: form.image
+      });
+    }
 
     router.push(isLogin ? next : "/login");
     router.refresh();
@@ -52,6 +78,7 @@ export default function AuthForm({ mode }) {
         <Image src="/images/brand/final-logo.png" alt="TileCraft" width={84} height={80} className="auth-logo" />
         <h1>{isLogin ? "Welcome Back!" : "Create Account"}</h1>
         <p>{isLogin ? "Use any email and password to explore premium tiles" : "Register yourself to save favorites and manage your profile"}</p>
+        {isLogin && <p className="auth-note">You can reach this page from the navbar Login button or when opening private routes like Tile Details and My Profile.</p>}
 
         <form onSubmit={submit} className="auth-form">
           {!isLogin && (
