@@ -406,7 +406,7 @@ input {
 
 .footer-logo {
   filter: brightness(1.35);
-  width: 74px;
+  width: 82px;
   height: auto;
 }
 
@@ -697,7 +697,7 @@ input {
 .auth-logo {
   margin: 0 auto 18px;
   object-fit: contain;
-  width: 76px;
+  width: 84px;
   height: auto;
 }
 
@@ -881,7 +881,7 @@ input {
   }
 
   .brand img {
-    width: 48px;
+    width: 56px;
     height: auto;
   }
 
@@ -1211,6 +1211,6 @@ input {
   }
 
   .brand img {
-    width: 44px;
+    width: 52px;
   }
 }
