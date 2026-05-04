@@ -11,7 +11,12 @@ export default function AuthForm({ mode }) {
   const isLogin = mode === "login";
   const router = useRouter();
   const [next, setNext] = useState("/");
-  const [form, setForm] = useState({ name: "", email: "", image: "", password: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: isLogin ? "examiner@example.com" : "",
+    image: "",
+    password: isLogin ? "1234" : ""
+  });
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -83,6 +88,7 @@ export default function AuthForm({ mode }) {
         <h1>{isLogin ? "Welcome Back!" : "Create Account"}</h1>
         <p>{isLogin ? "Use any email and password to explore premium tiles" : "Register yourself to save favorites and manage your profile"}</p>
         {isLogin && <p className="auth-note">You can reach this page from the navbar Login button or when opening private routes like Tile Details and My Profile.</p>}
+        {isLogin && <p className="auth-note">Demo login is ready. Just press Login to review private pages.</p>}
 
         <form onSubmit={submit} className="auth-form">
           {!isLogin && (
