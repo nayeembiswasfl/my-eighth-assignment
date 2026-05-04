@@ -6,20 +6,20 @@ import { useEffect, useState } from "react";
 
 const slides = [
   {
-    image: "/images/brand/hero-banner.png",
-    label: "Modern Living"
+    image: "/images/banners/banner-3.png",
+    label: "Modern Surface Design"
   },
   {
-    image: "/images/tiles/ocean-blue-ceramic.jpg",
-    label: "Ocean Blue Ceramic"
+    image: "/images/banners/banner-1.png",
+    label: "Premium Interiors"
   },
   {
-    image: "/images/tiles/marble-white-classic.jpg",
-    label: "Marble White Classic"
+    image: "/images/banners/banner-2.png",
+    label: "Luxury Tile Gallery"
   },
   {
-    image: "/images/tiles/luxury-gold-vein.jpg",
-    label: "Luxury Gold Vein"
+    image: "/images/banners/banner-4.png",
+    label: "Inspired Living Spaces"
   }
 ];
 
